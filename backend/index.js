@@ -16,6 +16,17 @@ app.use(cors());
 /********************************************** */
 
 /******************message *******************************/
+
+
+app.get('/', (req, res) => {
+  res.send('🚀 Backend is up and running!');
+});
+
+
+
+
+
+
 app.post("/messages", async (req, res) => {
   try {
     const { name, message, complaintId } = req.body;
