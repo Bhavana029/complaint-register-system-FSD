@@ -34,7 +34,7 @@ const AgentInfo = () => {
     }
     if (window.confirm('Are you sure you want to update the agent?')) {
       try {
-        await axios.put(`http://localhost:8000/user/${user_id}`, updateAgent);
+        await axios.put(`https://complaint-register-system-fsd.onrender.com/user/${user_id}`, updateAgent);
         alert('Agent updated successfully');
       } catch (err) {
         console.log(err);
@@ -45,7 +45,7 @@ const AgentInfo = () => {
   useEffect(() => {
     const getOrdinaryRecords = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/agentUsers');
+        const response = await axios.get('https://complaint-register-system-fsd.onrender.com/agentUsers');
         setOrdinaryList(response.data);
       } catch (error) {
         console.log(error);
@@ -57,7 +57,7 @@ const AgentInfo = () => {
   const deleteUser = async (userId) => {
     if (window.confirm('Are you sure you want to delete the user?')) {
       try {
-        await axios.delete(`http://localhost:8000/OrdinaryUsers/${userId}`);
+        await axios.delete(`https://complaint-register-system-fsd.onrender.com/OrdinaryUsers/${userId}`);
         setOrdinaryList(ordinaryList.filter((user) => user._id !== userId));
       } catch (error) {
         console.log(error);

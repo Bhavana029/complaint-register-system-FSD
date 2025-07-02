@@ -36,7 +36,7 @@ const Complaint = () => {
     e.preventDefault();
     const user = JSON.parse(localStorage.getItem('user'));
     const { _id } = user;
-    axios.post(`http://localhost:8000/Complaint/${_id}`, userComplaint)
+    axios.post(`https://complaint-register-system-fsd.onrender.com/Complaint/${_id}`, userComplaint)
       .then(res => {
         alert("Your Complaint has been sent!");
         handleClear();

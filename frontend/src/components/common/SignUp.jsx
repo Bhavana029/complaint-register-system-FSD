@@ -29,7 +29,7 @@ const SignUp = () => {
       e.preventDefault();
       const updatedUser = { ...user, userType: title };
       try {
-         const res = await axios.post("http://localhost:8000/SignUp", updatedUser);
+         const res = await axios.post("https://complaint-register-system-fsd.onrender.com/SignUp", updatedUser);
          alert("Record submitted");
          setUser({ name: "", email: "", password: "", phone: "", userType: "" });
          setTitle("Select User");

@@ -32,7 +32,7 @@ const UserInfo = () => {
     const confirmUpdate = window.confirm('Are you sure you want to update the user?');
     if (confirmUpdate) {
       try {
-        await axios.put(`http://localhost:8000/user/${user_id}`, updateUser);
+        await axios.put(`https://complaint-register-system-fsd.onrender.com/user/${user_id}`, updateUser);
         alert('User updated successfully');
       } catch (err) {
         console.log(err);
@@ -43,7 +43,7 @@ const UserInfo = () => {
   useEffect(() => {
     const getOrdinaryRecords = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/OrdinaryUsers');
+        const response = await axios.get('https://complaint-register-system-fsd.onrender.com/OrdinaryUsers');
         setOrdinaryList(response.data);
       } catch (error) {
         console.log(error);
@@ -56,7 +56,7 @@ const UserInfo = () => {
     const confirmed = window.confirm('Are you sure you want to delete the user?');
     if (confirmed) {
       try {
-        await axios.delete(`http://localhost:8000/OrdinaryUsers/${userId}`);
+        await axios.delete(`https://complaint-register-system-fsd.onrender.com/OrdinaryUsers/${userId}`);
         setOrdinaryList(ordinaryList.filter((user) => user._id !== userId));
       } catch (error) {
         console.log(error);

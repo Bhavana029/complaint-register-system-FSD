@@ -37,7 +37,7 @@ const AccordionAdmin = () => {
   useEffect(() => {
     const getComplaints = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/status');
+        const response = await axios.get('https://complaint-register-system-fsd.onrender.com/status');
         setComplaintList(response.data);
       } catch (error) {
         console.log(error);
@@ -46,7 +46,7 @@ const AccordionAdmin = () => {
 
     const getAgentsRecords = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/AgentUsers');
+        const response = await axios.get('https://complaint-register-system-fsd.onrender.com/AgentUsers');
         setAgentList(response.data);
       } catch (error) {
         console.log(error);
@@ -59,9 +59,9 @@ const AccordionAdmin = () => {
 
   const handleSelection = async (agentId, complaintId, status, agentName) => {
     try {
-      await axios.get(`http://localhost:8000/AgentUsers/${agentId}`);
+      await axios.get(`https://complaint-register-system-fsd.onrender.com/AgentUsers/${agentId}`);
       const assignedComplaint = { agentId, complaintId, status, agentName };
-      await axios.post('http://localhost:8000/assignedComplaints', assignedComplaint);
+      await axios.post('https://complaint-register-system-fsd.onrender.com/assignedComplaints', assignedComplaint);
       const updatedComplaintList = complaintList.filter((c) => c._id !== complaintId);
       setComplaintList(updatedComplaintList);
       alert(`Complaint assigned to Agent ${agentName}`);

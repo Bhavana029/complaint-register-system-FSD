@@ -25,7 +25,7 @@ const AgentHome = () => {
         if (user) {
           const { _id, name } = user;
           setUserName(name);
-          const response = await axios.get(`http://localhost:8000/allcomplaints/${_id}`);
+          const response = await axios.get(`https://complaint-register-system-fsd.onrender.com/allcomplaints/${_id}`);
           setAgentComplaintList(response.data);
         } else {
           navigate('/');
@@ -40,7 +40,7 @@ const AgentHome = () => {
 
   const handleStatusChange = async (complaintId) => {
     try {
-      await axios.put(`http://localhost:8000/complaint/${complaintId}`, { status: 'completed' });
+      await axios.put(`https://complaint-register-system-fsd.onrender.com/complaint/${complaintId}`, { status: 'completed' });
       setAgentComplaintList((prev) =>
         prev.map((c) =>
           c._doc.complaintId === complaintId
